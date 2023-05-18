@@ -15,7 +15,7 @@ const page = async ({ params }) => {
   return (
     <div
       style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9)), url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -23,7 +23,7 @@ const page = async ({ params }) => {
     >
       <p className="mt-6 text-center text-xl font-bold">Movie Details</p>
       <div className="p-6">
-        <div className="m-auto min-h-[360px] max-w-6xl p-6 shadow-2xl ">
+        <div className="m-auto min-h-[360px] max-w-6xl p-6 shadow-2xl bg-[#6151518c] rounded-3xl ">
           <Image
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             width={500}
