@@ -12,7 +12,6 @@ const page = async ({ params }) => {
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
         backgroundSize: "cover",
-
         backgroundPosition: "center",
       }}
     >

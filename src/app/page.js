@@ -21,8 +21,8 @@ const page = async () => {
       {movies &&
         movies.results.map((movie) => {
           return (
-            <Link href={`/moviedetails/${movie.id}`}>
-              <div className="h-[700px] max-w-xs rounded-xl bg-blue-200 p-6 shadow-2xl">
+            <div key={movie.id} className="h-[700px] max-w-xs rounded-xl bg-blue-200 p-6 shadow-2xl">
+                <Link href={`/moviedetails/${movie.id}`}>
                 <Image
                   src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                   width={500}
@@ -37,8 +37,8 @@ const page = async () => {
                   Release Year: {new Date(movie.release_date).getFullYear()}
                 </p>
                 <p>Rating: {Math.floor(calcRatings(movie.vote_average))}%</p>
-              </div>
             </Link>
+              </div>
           );
         })}
     </div>
