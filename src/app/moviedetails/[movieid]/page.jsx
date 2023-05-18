@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const page = async ({ params }) => {
@@ -7,19 +8,30 @@ const page = async ({ params }) => {
   );
   const movie = await singleMovie.json();
   return (
-    <div>
-        <p className="text-center text-xl font-bold mt-6">Movie Details</p>
+    <div
+      style={{
+        backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})`,
+        backgroundSize: "cover",
+
+        backgroundPosition: "center",
+      }}
+    >
+      <p className="mt-6 text-center text-xl font-bold">Movie Details</p>
       <div className="p-6">
-        <div className="min-h-[360px] max-w-6xl m-auto p-6 shadow-2xl ">
-          <img 
+        <div className="m-auto min-h-[360px] max-w-6xl p-6 shadow-2xl ">
+          <Image
             src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-            alt=""
+            width={500}
+            height={500}
+            alt={movie.original_title}
           />
           <h4 className="my-4 text-3xl font-bold">{movie.original_title}</h4>
           <h4 className="mb-4">{movie.overview}</h4>
-          <img className="w-full h-1/2"
+          <Image
             src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-            alt=""
+            width={500}
+            height={500}
+            alt={movie.original_title}
           />
         </div>
       </div>

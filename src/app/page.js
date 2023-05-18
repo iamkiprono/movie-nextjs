@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+
 const page = async () => {
   const data = await fetch(
     "https://api.themoviedb.org/3/movie/popular?api_key=aeeb61963da597e184eba3a9b3377487"
@@ -21,10 +22,13 @@ const page = async () => {
         movies.results.map((movie) => {
           return (
             <Link href={`/moviedetails/${movie.id}`}>
-              <div className="max-h-[800px] max-w-xs rounded-xl bg-blue-200 p-6 shadow-2xl">
-                <img
+              <div className="h-[700px] max-w-xs rounded-xl bg-blue-200 p-6 shadow-2xl">
+                <Image
                   src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                  alt=""
+                  width={500}
+                  height={500}
+                  alt={movie.original_title}
+               
                 />
                 <h4 className="my-4 text-3xl font-bold">
                   {movie.original_title}
